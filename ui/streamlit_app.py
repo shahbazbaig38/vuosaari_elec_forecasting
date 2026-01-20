@@ -82,7 +82,7 @@ st.markdown('<div class="main-header">⚡ Vuosaari Electricity Forecasting Dashb
 
 # Sidebar
 with st.sidebar:
-    st.image("https://via.placeholder.com/300x100/1f77b4/ffffff?text=Vuosaari+Energy", width='stretch')
+    st.image("https://via.placeholder.com/300x100/1f77b4/ffffff?text=Vuosaari+Energy", width=300)
     
     st.markdown("### 🎛️ Control Panel")
     

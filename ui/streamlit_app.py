@@ -82,7 +82,7 @@ st.markdown('<div class="main-header">⚡ Vuosaari Electricity Forecasting Dashb
 
 # Sidebar
 with st.sidebar:
-    st.image("https://via.placeholder.com/300x100/1f77b4/ffffff?text=Vuosaari+Energy", use_container_width=True)
+    st.image("https://via.placeholder.com/300x100/1f77b4/ffffff?text=Vuosaari+Energy", width='stretch')
     
     st.markdown("### 🎛️ Control Panel")
     
@@ -215,7 +215,7 @@ if page == "📊 Dashboard":
                 template="plotly_white"
             )
             
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width='stretch')
             
             # Recent historical data
             st.subheader("📊 Recent Historical Data (Last 7 Days)")
@@ -239,7 +239,7 @@ if page == "📊 Dashboard":
                 template="plotly_white"
             )
             
-            st.plotly_chart(fig2, use_container_width=True)
+            st.plotly_chart(fig2, width='stretch')
             
         except Exception as e:
             st.error(f"Error generating dashboard: {e}")
@@ -346,7 +346,7 @@ elif page == "🔮 Forecast":
             legend=dict(x=0, y=1.1, orientation='h')
         )
         
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
         
         # Statistics
         st.subheader("📊 Forecast Statistics")
@@ -366,7 +366,7 @@ elif page == "🔮 Forecast":
             'Temperature (°C)': df_future['temperature'].round(1) if 'temperature' in df_future.columns else None
         })
         
-        st.dataframe(display_df, use_container_width=True, height=400)
+        st.dataframe(display_df, width='stretch', height=400)
         
         # Download button
         csv = display_df.to_csv(index=False)
@@ -449,7 +449,7 @@ elif page == "📈 Historical Analysis":
             template="plotly_white"
         )
         
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
         
         # Temperature vs Consumption
         if 'temperature' in df.columns:
@@ -466,7 +466,7 @@ elif page == "📈 Historical Analysis":
             )
             
             fig2.update_layout(height=400, template="plotly_white")
-            st.plotly_chart(fig2, use_container_width=True)
+            st.plotly_chart(fig2, width='stretch')
         
         # Hourly patterns
         st.subheader("⏰ Hourly Consumption Patterns")
@@ -490,7 +490,7 @@ elif page == "📈 Historical Analysis":
             template="plotly_white"
         )
         
-        st.plotly_chart(fig3, use_container_width=True)
+        st.plotly_chart(fig3, width='stretch')
 
 elif page == "🤖 Model Info":
     st.header("🤖 Model Information")
@@ -560,11 +560,11 @@ elif page == "🤖 Model Info":
             template="plotly_white"
         )
         
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
         
         # Full table
         with st.expander("📋 View All Feature Importances"):
-            st.dataframe(importance_df, use_container_width=True)
+            st.dataframe(importance_df, width='stretch')
     else:
         st.info("Feature importance not available for this model type")
     

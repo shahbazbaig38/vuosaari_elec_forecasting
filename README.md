@@ -272,7 +272,6 @@ Edit `config/config.yaml` to customize:
 ## 🔒 Environment Variables
 
 Create a `.env` file for sensitive data (optional):
-```
 
 
 ## 🐛 Troubleshooting

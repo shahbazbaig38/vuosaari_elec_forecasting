@@ -1,0 +1,90 @@
+# Configuration for Vuosaari Electricity Forecasting System
+
+# API Configuration
+api:
+  nuuka:
+    base_url: "https://helsinki-openapi.nuuka.cloud/api/v1.0/EnergyData/Hourly/ListByProperty"
+    location_id: "4438"
+    reporting_group: "Electricity"
+  
+  open_meteo:
+    archive_url: "https://archive-api.open-meteo.com/v1/archive"
+    forecast_url: "https://api.open-meteo.com/v1/forecast"
+
+# Location Configuration
+location:
+  name: "Vuosaari"
+  latitude: 60.20766
+  longitude: 25.14080
+  timezone: "Europe/Helsinki"
+
+# Data Configuration
+data:
+  start_date: "2020-01-01"  # Default training start date
+  train_end_date: null  # null means use current date
+  raw_data_path: "data/raw"
+  processed_data_path: "data/processed"
+  predictions_path: "data/predictions"
+
+# Model Configuration
+model:
+  type: "RandomForestRegressor"
+  hyperparameters:
+    n_estimators: 100
+    max_depth: 7
+    min_samples_split: 2
+    min_samples_leaf: 1
+    random_state: 42
+    n_jobs: -1
+  
+  features:
+    - hour
+    - month_sin
+    - temperature
+    - lag_24h
+    - lag_48h
+    - lag_168h
+  
+  target: "consumption"
+  
+  save_path: "models/trained_model.pkl"
+
+# Feature Engineering
+features:
+  lag_hours: [24, 48, 168]  # Can add more lags like [24, 48, 168]
+  rolling_windows: []  # e.g., [24, 168] for daily/weekly averages
+
+# Prediction Configuration
+prediction:
+  forecast_hours: 24
+  output_format: "csv"  # csv, json, or both
+
+# Logging Configuration
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/app.log"
+  console: true
+
+# API Server Configuration
+server:
+  host: "0.0.0.0"
+  port: 8000
+  reload: true
+  workers: 1
+
+# Streamlit Configuration
+streamlit:
+  page_title: "Vuosaari Electricity Forecasting"
+  page_icon: "⚡"
+  layout: "wide"
+  initial_sidebar_state: "expanded"
+
+# Evaluation Configuration
+evaluation:
+  test_size: 500  # Last N hours for validation
+  metrics:
+    - mae
+    - rmse
+    - r2
+    - mape

@@ -1,0 +1,46 @@
+# Core ML Libraries
+scikit-learn==1.3.2
+numpy==1.24.3
+pandas==2.0.3
+joblib==1.3.2
+
+# Data Fetching
+requests==2.31.0
+
+# API Framework
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic==2.5.0
+
+# UI Framework
+streamlit==1.28.1
+
+# Visualization
+matplotlib==3.7.2
+seaborn==0.12.2
+plotly==5.17.0
+
+# Configuration
+pyyaml==6.0.1
+python-dotenv==1.0.0
+
+# Testing
+pytest==7.4.3
+pytest-cov==4.1.0
+httpx==0.25.1  # For FastAPI testing
+
+# Jupyter
+jupyter==1.0.0
+ipykernel==6.25.2
+notebook==7.0.6
+
+# Utilities
+python-dateutil==2.8.2
+pytz==2023.3
+
+# Optional: Advanced ML models for experimentation
+xgboost==2.0.1
+lightgbm==4.1.0
+
+# Optional: Time series specific
+statsmodels==0.14.0

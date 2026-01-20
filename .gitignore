@@ -22,7 +22,7 @@ data/predictions/*
 !data/predictions/.gitkeep
 
 # Models
-models/*.pkl
+models/best*.pkl
 models/*.joblib
 !models/.gitkeep
 
